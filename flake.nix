@@ -2,7 +2,7 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     # home-manager.url = "github:nix-community/home-manager";
 
     # home-manager nixpkgs follows main nixpkgs
@@ -15,7 +15,7 @@
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
   in
   {
-    nixosConfiguration.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.memex = inputs.nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
       ];
