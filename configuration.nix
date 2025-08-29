@@ -52,7 +52,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkManager" ];
     packages = with pkgs; [
-      gh
     ];
   };
 
@@ -64,9 +63,10 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim
-    tmux
+    zellij
     git
     nh
+    gh
     tree
     brightnessctl
     acpi
