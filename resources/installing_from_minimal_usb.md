@@ -120,3 +120,10 @@ nixos-enter --root /mnt -c 'passwd YourUsernameHere'
 ```sh
 reboot
 ```
+- **(optional)** Symlink your nixos config from your user home directory, so you don't always have to use sudo to change it.
+```sh
+git clone "Your Config URL Here" ~/nixos
+sudo rm -rf /etc/nixos
+sudo ln -s ~/nixos /etc/nixos
+ls -la /etc/nixos  # to verify it worked
+```
