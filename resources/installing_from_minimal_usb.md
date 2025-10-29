@@ -8,6 +8,8 @@
 - Shut down your computer fully and reboot into the BIOS/temp boot settings
 - Boot into the USB HDD drive
 # Networking
+- If you're on a VM (such as UTM/qemu on MacOS), you may need to select a "Bridged" network connection.
+- Otherwise, if you want to use a wireless connection:
 ```sh
 sudo systemctl start wpa_supplicant
 wpa_cli
@@ -106,12 +108,15 @@ nixos-generate-config --root /mnt
 ```sh
 git clone --depth 1 "Your Configuration Repo URL Here" /mnt/etc/nixos
 ```
+- Just remember to replace it with your own `hardware-configuration.nix`.
 - Install NixOS
 ```sh
 nixos-install
 # or if your configuration uses flakes
 nixos-install --flake 'path/to/flake.nix#yourconfigurationnamehere'
 ```
+- Flakes give a scary error unless everything in the config is in the git repository
+	- Make sure you delete the git repository, or ensure everything is properly committed
 - Enter the installation and set a password, if you defined a regular user in your `configuration.nix`.
 ```sh
 nixos-enter --root /mnt -c 'passwd YourUsernameHere'
