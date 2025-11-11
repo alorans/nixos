@@ -28,6 +28,15 @@ nix-shell -p git vim tmux tree acpi brightnessctl
 - `brightnessctl` = change screen brightness
 - I typically boot into the nix-shell above, then `tmux`, and finally `sudo -i` for convenience in the installation.
 - If you don't do `sudo -i`, most of the following commands will have to be run with `sudo`.
+# Colors
+```sh
+echo -en "\e]P44444FF"
+```
+- The blue color in the `ls` command can often be difficult the read. This makes it a brighter blue.
+- You can also apply this color in Vim.
+```vimscript
+:highlight Comment ctermfg=blue
+```
 # Partition Disk
 - **CHECK YOUR DISKS IN `/dev`!**
 	- Typically, hard drives are at `/dev/sdX`
