@@ -8,7 +8,13 @@
 - Shut down your computer fully and reboot into the BIOS/temp boot settings
 - Boot into the USB HDD drive
 # Networking
-- If you're on a VM (such as UTM/qemu on MacOS), you may need to select a "Bridged" network connection.
+- I often find that with VMs, the DNS is not configured correctly by default. For example, you can ping 1.1.1.1, but not google.com. To fix this:
+	- Open `nmtui` > Edit a connection
+		- Select "Wired connection 1", or a different network interface if you're not on a VM (e.g. "eth0")
+		- Under IPv4 Configuration <Show>, add a DNS server (e.g. 1.1.1.1, 8.8.8.8)
+	- Then press ESC to go back to the `nmtui` home screen > Activate a connection
+		- Deactivate and reactivate your interface (it will not work if you don't do this).
+- Alternatively, you can select a "Bridged" network connection.
 - Otherwise, if you want to use a wireless connection:
 ```sh
 sudo systemctl start wpa_supplicant
