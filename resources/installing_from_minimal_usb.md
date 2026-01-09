@@ -132,6 +132,8 @@ nixos-install --flake 'path/to/flake.nix#yourconfigurationnamehere'
 ```
 - Flakes give a scary error unless everything in the config is in the git repository
 	- Make sure you delete the git repository, or ensure everything is properly committed
+- If you want to use the new nix command syntax, include `--experimental-features "nix-command flakes"` in your command.
+	- For example, `nix flake check` does linting and validation of a flake.
 - Enter the installation and set a password, if you defined a regular user in your `configuration.nix`.
 ```sh
 nixos-enter --root /mnt -c 'passwd YourUsernameHere'
