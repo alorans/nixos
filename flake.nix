@@ -104,7 +104,7 @@
             # --- Display Manager ---
             # GDM (GNOME Display Manager) is the most reliable login screen for Wayland
             services.xserver.enable = true;
-            services.xserver.displayManager.gdm.enable = true;
+            services.displayManager.gdm.enable = true;
 
             # --- State Version ---
             system.stateVersion = "25.11";
